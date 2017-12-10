@@ -40,3 +40,11 @@ html {
     visibility: hidden;
   }
   
+  .preview { 
+    position: absolute; 
+    left: -999px; 
+    top: -999px; 
+    width: 1px; 
+    height: 1px; 
+    overflow: hidden; 
+  } 

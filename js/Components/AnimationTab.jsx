@@ -7,10 +7,12 @@ export default class AnimationTab extends Component {
 
     onRecord = () => {
         const { states } = this.props;
+        this.props.capturer.record( states.animationFilename ); 
         this.props.actions.toggleRecording(true);
     }
 
     onStop = () => {
+        this.props.capturer.stop(); 
         this.props.actions.toggleRecording(false);
     }
 

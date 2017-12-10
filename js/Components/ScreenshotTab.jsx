@@ -5,6 +5,11 @@ import { TAB_BUTTON_STYLE, SCREENSHOT_DEFAULT_FILENAME } from '../Constants';
 
 export default class ScreenshotTab extends Component {
 
+    onCapture = () => {
+        const { states } = this.props;
+        this.props.capturer.takeScreenshot(states.screenshotFilename);
+    }
+
     onFilenameChange = (e) => {
         const { value } = e.target;
         const { actions } = this.props;
@@ -33,6 +38,7 @@ export default class ScreenshotTab extends Component {
                 <div className='tab-layout__item'>
 
                     <IconButton
+                        onClick={this.onCapture}
                         tooltip='Take screenshot'
                         iconClassName='material-icons'
                         iconStyle={TAB_BUTTON_STYLE}>add_a_photo</IconButton>
