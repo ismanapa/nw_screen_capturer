@@ -9,6 +9,7 @@ import DevTools from './Components/DevTools';
 import Capturer from './Service/Capturer.js';
 import Dom from './Service/Capturer/Dom';
 import Fsys from './Service/Capturer/Fsys.js';
+import Tray from './Service/Tray';
 
 const capturer = new Capturer(new Fsys(), new Dom());
 
@@ -18,6 +19,9 @@ const storeEnhancer = compose(
 );
 
 const store = createStore(appReducer, storeEnhancer);
+
+const tray = new Tray(capturer, store);
+tray.render();
 
 render(
     <Provider store={store}>
