@@ -10,6 +10,7 @@ import Capturer from './Service/Capturer.js';
 import Dom from './Service/Capturer/Dom';
 import Fsys from './Service/Capturer/Fsys.js';
 import Tray from './Service/Tray';
+import Shortcut from './Service/Shortcut'
 
 const capturer = new Capturer(new Fsys(), new Dom());
 
@@ -22,6 +23,9 @@ const store = createStore(appReducer, storeEnhancer);
 
 const tray = new Tray(capturer, store);
 tray.render();
+
+const shortcut = new Shortcut(capturer, store);
+shortcut.registerAll();
 
 render(
     <Provider store={store}>

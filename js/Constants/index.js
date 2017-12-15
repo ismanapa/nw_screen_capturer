@@ -10,6 +10,10 @@ export const SET_SCREENSHOT_INPUT_ERROR = 'SET_SCREENSHOT_INPUT_ERROR';
 export const SET_ANIMATION_FILENAME = 'SET_ANIMATION_FILENAME';
 export const SET_ANIMATION_INPUT_ERROR = 'SET_ANIMATION_INPUT_ERROR';
 
+export const TAKE_SCREENSHOT_SHORTCUT = 'Shift+Alt+4'; 
+export const RECORD_SHORTCUT = 'Shift+Alt+5'; 
+export const STOP_SHORTCUT = 'Shift+Alt+6'; 
+
 export const TAB_BUTTON_STYLE = {
     fontSize: 90
 };

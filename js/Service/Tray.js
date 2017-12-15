@@ -2,7 +2,10 @@ const appWindow = nw.Window.get();
 import { toggleRecording } from '../Actions';
 import {
     SCREENSHOT_DEFAULT_FILENAME,
-    ANIMATION_DEFAULT_FILENAME
+    ANIMATION_DEFAULT_FILENAME,
+    TAKE_SCREENSHOT_SHORTCUT,
+    RECORD_SHORTCUT,
+    STOP_SHORTCUT
 } from '../Constants';
 
 export default class Tray {
@@ -37,11 +40,11 @@ export default class Tray {
 
     getItems = () => [
         {
-            label: 'Take screenshot',
+            label: `Take screenshot (${TAKE_SCREENSHOT_SHORTCUT})`,
             click: () => this.capturer.takeScreenshot(this.screenshotFilename)
         },
         {
-            label: 'Start recording',
+            label: `Start recording (${RECORD_SHORTCUT})`,
             enabled: !this.isRecording,
             click: () => {
                 this.capturer.record(this.animationFilename);
@@ -49,7 +52,7 @@ export default class Tray {
             }
         },
         {
-            label: `Stop recording`,
+            label: `Stop recording (${STOP_SHORTCUT})`,
             enabled: this.isRecording,
             click: () => {
                 this.capturer.stop();
